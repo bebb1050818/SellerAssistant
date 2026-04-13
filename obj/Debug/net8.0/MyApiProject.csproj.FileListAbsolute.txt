@@ -111,3 +111,4 @@
 /home/bebb8/new_project_1/MyApiProject/bin/Debug/net8.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/bebb8/new_project_1/MyApiProject/bin/Debug/net8.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
 /home/bebb8/new_project_1/MyApiProject/bin/Debug/net8.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/home/bebb8/new_project_1/MyApiProject/obj/Debug/net8.0/MyApiProject.sourcelink.json

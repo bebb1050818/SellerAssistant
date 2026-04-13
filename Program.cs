@@ -14,6 +14,10 @@ builder.Services.AddControllers();
 
 // Register Custom Services
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IFinancialService, FinancialService>();
 
 // Add Swagger with Auth
 builder.Services.AddSwaggerGen(c =>
@@ -40,6 +44,13 @@ builder.Services.AddSwaggerGen(c =>
 // EF Core
 builder.Services.AddDbContext<PostgresContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Ensure Database Created
+using (var scope = builder.Services.BuildServiceProvider().CreateScope())
+{
+    var context = scope.ServiceProvider.GetRequiredService<PostgresContext>();
+    context.Database.EnsureCreated();
+}
 
 // Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
